@@ -40,11 +40,11 @@ class GovUKSpider(SitemapSpider):
         'tribunal'
     ]))
 
+
     def sitemap_filter(self, entries):
-        print("Checking entries:", len(entries))  # Check how many entries are being processed
         for entry in entries:
             url = entry['loc']
-            print("Processing URL:", url)  # Output every URL found in the sitemap
+            # Include URLs based on specific patterns and exclude based on exceptions
             if self.inclusion_patterns.search(url) and not self.url_exceptions.search(url):
-                print("Yielding URL:", url)  # Confirm which URLs are being yielded
+                print(url)
                 yield URLItem(url=url)
