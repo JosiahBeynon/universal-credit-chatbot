@@ -22,21 +22,21 @@ class DataAcquisitionPipeline:
     
 
 url_exceptions = [
-    'hmrc-internal-manuals',
-    'news',
-    'publications',
-    'statistics',
-    'research',
-    'piper',
-    'tribunal',
-    'drug',
-    'consultations',
-    'speeches',
-    'collections',
-    'case-studies',
     'calls-for-evidence',
+    'case-studies',
+    'collections',
+    'consultations',
+    'drug',
+    'hmrc-internal-manuals',
+    'landspreading',
+    'news',
+    'piper',
     'pippa',
-    'landspreading'
+    'publications',
+    'research',
+    'speeches',
+    'statistics',
+    'tribunal'
 ]
 
 class UrlFilterPipeline:

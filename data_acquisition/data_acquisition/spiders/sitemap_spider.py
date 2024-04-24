@@ -21,15 +21,13 @@ class GovUKSpider(SitemapSpider):
     sitemap_urls = ['https://www.gov.uk/sitemap.xml']
 
     sitemap_rules = [
-        ('.*universal-credit.*', 'parse_urls'),
-        ('.*tax-credit.*', 'parse_urls'),
-        ('.*childcare.*', 'parse_urls'),
-        ('.*self-employment.*', 'parse_urls'),
-        ('.*benefit.*', 'parse_urls'),
-        # ('.*disability-living-allowance.*', 'parse_urls'),
         ('.*allowance.*', 'parse_urls'),
+        ('.*benefit.*', 'parse_urls'),
+        ('.*childcare.*', 'parse_urls'),
         ('.*/pip.*', 'parse_urls'),
-        ('.*allowance.*', 'parse_urls')
+        ('.*self-employment.*', 'parse_urls'),
+        ('.*tax-credit.*', 'parse_urls'),
+        ('.*universal-credit.*', 'parse_urls'),
     ]
 
     def parse_urls(self, response):
