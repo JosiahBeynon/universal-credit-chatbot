@@ -1,4 +1,4 @@
-# Scrapy settings for web_scraper project
+# Scrapy settings for data_acquisition project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,16 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "web_scraper"
+BOT_NAME = "data_acquisition"
 
-SPIDER_MODULES = ["web_scraper.spiders"]
-NEWSPIDER_MODULE = "web_scraper.spiders"
+SPIDER_MODULES = ["data_acquisition.spiders"]
+NEWSPIDER_MODULE = "data_acquisition.spiders"
+
+LOG_LEVEL = 'INFO'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "web_scraper (+http://www.yourdomain.com)"
+USER_AGENT = "josiah (hey@josiahbeynon.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -25,7 +27,7 @@ ROBOTSTXT_OBEY = True
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 0.01
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -45,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "web_scraper.middlewares.WebScraperSpiderMiddleware": 543,
+#    "data_acquisition.middlewares.DataAcquisitionSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "web_scraper.middlewares.WebScraperDownloaderMiddleware": 543,
+#    "data_acquisition.middlewares.DataAcquisitionDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -62,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "web_scraper.pipelines.WebScraperPipeline": 300,
-#}
+ITEM_PIPELINES = {
+    'data_acquisition.pipelines.UrlFilterPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
